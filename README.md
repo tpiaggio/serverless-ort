@@ -10,3 +10,19 @@ Exercises are divided in 2 folders depending on the library and language used.
 ### react/firebase-rtdb
 
 Lesson that consisted on explaining firebase and the Realtime Database.
+
+### react/firebase-auth
+
+Lesson that consisted on explaining firebase auth, using firebaseui
+
+### react/firebase-security
+
+Lesson that consisted on explaining security rules and the firebase emulator
+
+### flutter/Auth
+
+Lesson that consisted on explaining firebase authentication sdk
+
+### flutter/Firestore
+
+Lesson that consisted on explaining firebase and firestore
