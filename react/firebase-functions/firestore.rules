@@ -1,0 +1,28 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isValidNumber(numberToValidate) {
+      return numberToValidate is number && numberToValidate >=0;
+    }
+
+    function isValidString(stringToValidate) {
+      return stringToValidate is string && stringToValidate.trim() != "";
+    }
+
+    function isValidTimeEntry() {
+      return isValidString(request.resource.data.title) && isValidNumber(request.resource.data.time_seconds);
+    }    
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    match /times/{timesId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth.uid == request.resource.data.user_id && isValidTimeEntry();
+      allow update: if request.auth.uid == request.resource.data.user_id && isValidTimeEntry();
+      allow delete: if request.auth.uid == resource.data.user_id;
+    }
+  }
+}
