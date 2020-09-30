@@ -19,10 +19,22 @@ Lesson that consisted on explaining firebase auth, using firebaseui
 
 Lesson that consisted on explaining security rules and the firebase emulator
 
+### react/firebase-functions
+
+Lesson that consisted on explaining Cloud Functions and Cloud Storage
+
 ### flutter/Auth
 
-Lesson that consisted on explaining firebase authentication sdk
+Lesson that consisted on explaining Firebase Authentication SDK
 
 ### flutter/Firestore
 
-Lesson that consisted on explaining firebase and firestore
+Lesson that consisted on explaining Firebase and Firestore
+
+### flutter/Cloud Functions
+
+Lesson that consisted on explaining Cloud Functions with a simple https call
+
+### flutter/Cloud Messaging
+
+Lesson that consisted on explaining Cloud Messaging and generate a push notification
