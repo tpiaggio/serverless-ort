@@ -1,7 +1,13 @@
 import 'dart:math';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+
+import 'logInScreen.dart';
+
+
+final FirebaseAuth _auth = FirebaseAuth.instance;
 
 void main() {
   runApp(MyApp());
@@ -65,6 +71,7 @@ class _MyHomePageState extends State<MyHomePage> {
               InkWell(
                   onTap: (){
                       info.reference.updateData({"votes":info.data["votes"]+1});
+                      info.reference.setData({"pepito":"si es pepito"}, merge: true);
                   },
                 child: Container(
                   width: 50,
@@ -83,12 +90,48 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
+  FirebaseUser firebaseUser;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
+        actions: <Widget>[
+          
+          StreamBuilder<FirebaseUser>(
+            stream: _auth.onAuthStateChanged,
+            builder: (context, snapshot) {
+                firebaseUser = snapshot?.data;
+              return FlatButton(
+                  child: Text((firebaseUser==null) ? 'Sign In': 'Sign out'),
+                  textColor: Theme
+                      .of(context)
+                      .buttonColor,
+                  onPressed: () async {
+                    
+                    if (firebaseUser == null) {
+//6
+                       Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => EmailPasswordForm()),
+                      );
+                      return;
+                    }
+                    await _auth.signOut();
+                   
+                    final String uid = firebaseUser.email;
+                    Scaffold.of(context).showSnackBar(SnackBar(
+                      content: Text(uid + ' has successfully signed out.'),
+                    ));
+                  },
+                );
+            }
+          )
+        ],
       ),
+
+        
       body: StreamBuilder(
         stream: Firestore.instance.collection('bandnames').snapshots(),
         builder: (context, snapshot) {
