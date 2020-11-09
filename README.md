@@ -5,7 +5,7 @@ This repo is used for the Serverless Architecture Course at Universidad ORT
 We use 2 libraries in order to do the exercises of the lessons, [React](https://reactjs.org/) and [Flutter](https://flutter.dev/).
 We divide the course in two, the first half using [Firebase](https://firebase.google.com/) and the second half using AWS.
 
-Exercises are divided in 2 folders depending on the library and language used.
+Exercises are divided in folders depending on the library and language used.
 
 ### react/firebase-rtdb
 
@@ -38,3 +38,7 @@ Lesson that consisted on explaining Cloud Functions with a simple https call
 ### flutter/Cloud Messaging
 
 Lesson that consisted on explaining Cloud Messaging and generate a push notification
+
+### angular/compare-yourself
+
+Initial example code before adding AWS
