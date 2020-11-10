@@ -42,3 +42,7 @@ Lesson that consisted on explaining Cloud Messaging and generate a push notifica
 ### angular/compare-yourself
 
 Initial example code before adding AWS
+
+### angular/compare-yourself-cognito
+
+Lesson that consisted on explaining AWS Cognito and integrating it to a front-end app
