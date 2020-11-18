@@ -1,0 +1,22 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Compare Yourself!</a>
+    </div>
+    <div class="navbar-default">
+      <ul class="nav navbar-nav">
+        <li *ngIf="isAuthenticated" routerLinkActive="active"><a routerLink="/compare">Compare</a></li>
+        <li *ngIf="isAuthenticated" routerLinkActive="active"><a (click)="onLogout()" style="cursor: pointer;">Logout</a></li>
+        <li *ngIf="!isAuthenticated" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="/">Sign In</a></li>
+        <li *ngIf="!isAuthenticated" routerLinkActive="active"><a routerLink="/signup">Sign Up</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
